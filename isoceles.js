@@ -1,10 +1,16 @@
-const altIsoceles = (lado1, lado2, lado3) => {
-    const esIsoceles = lado1 === lado2 ^ lado1 === lado3 ^ lado2 === lado3
-    const ladosTriangulos = [lado1, lado2, lado3];
+let result = document.getElementById('result')
+
+const calcularAlturaIsoceles = (ladosArray) => {
+    const esIsoceles = (ladosArray[0] === ladosArray[1] && ladosArray[0] !== ladosArray[2]) 
+    || ladosArray[0] !== ladosArray[1] && ((ladosArray[0] === ladosArray[2] && ladosArray[0] !== ladosArray[1]) 
+    || (ladosArray[1] === ladosArray[2]))
+    const ladosTriangulos = [...ladosArray];
     let hipotenusa;
     let base;
     if (!esIsoceles) {
-        return console.log("nada que ve");
+        console.log("nada que ve");
+        result.innerText = "el triangulo no es isoceles"
+        return
     }
 
 
@@ -22,12 +28,25 @@ const altIsoceles = (lado1, lado2, lado3) => {
 
     const altura = Math.sqrt(Math.pow(hipotenusa,2) - Math.pow((base/2),2))
 
-    console.log(`${hipotenusa}`);
-    console.log(`${base}`);
-    console.log(`${ladosTriangulos}`);
-    console.log(altura);
+    console.log(`hipotenusa: ${hipotenusa}`);
+    console.log(`Base: ${base}`);
+    console.log(`Altura: ${altura}`);
+
+    result.innerText = `La altura del triangulo es: ${altura}`
 }
 
+function mostrarAlturaIsoceles(){
+    const inputLadosTriangulo = document.getElementById('inputLadosTriangulo');
+    const inputLadosTrianguloValue = inputLadosTriangulo.value.split(' ');
+    
+    const ladosTriangulo = inputLadosTrianguloValue.map(lado => {
+        return parseInt(lado, 10)
+    })
 
-console.log(altIsoceles(6,5,5));
-// export default altIsoceles
+    if (ladosTriangulo.length !== 3) {
+        result.innerText = "no estas ingresando la cantidad correcta de lados";
+        return
+    }
+
+    calcularAlturaIsoceles(ladosTriangulo)
+}

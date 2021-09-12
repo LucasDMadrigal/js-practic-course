@@ -10,22 +10,49 @@ console.log(`el Area del cuadrado es: ${areaCuadrado}`);
 console.groupEnd()
 // *********************************************//
 
-const ladoTriangulo1 = 6;
-const ladoTriangulo2 = 6;
-const ladoTriangulo3 = 4;
+const resultArea = document.getElementById('resultArea')
 
-const perimetroTriangulo = ladoTriangulo1 + ladoTriangulo2 + ladoTriangulo3
 
-const semiperimetro = perimetroTriangulo/2
+    
+function calcularArea(ladosTrianguloArray){
 
-const areaTriangulo = Math.pow((semiperimetro*(semiperimetro - ladoTriangulo1)*(semiperimetro-ladoTriangulo2)*(semiperimetro - ladoTriangulo3)),0.5)
+    const ladoTriangulo1 = ladosTrianguloArray[0];
+    const ladoTriangulo2 = ladosTrianguloArray[1];
+    const ladoTriangulo3 = ladosTrianguloArray[2];
 
-console.group("area Triangulo");
+    const perimetroTriangulo = ladoTriangulo1 + ladoTriangulo2 + ladoTriangulo3
+    
+    const semiperimetro = perimetroTriangulo/2
+    
+    const areaTriangulo = Math.pow((semiperimetro*(semiperimetro - ladoTriangulo1)*(semiperimetro-ladoTriangulo2)*(semiperimetro - ladoTriangulo3)),0.5)
+    
+    console.group("area Triangulo");
+    
+    if (areaTriangulo) {
+        console.log(`el perimetro del Triangulo es: ${perimetroTriangulo}`);
+        resultArea.innerText = `el Area del Triangulo es: ${areaTriangulo}`;
+    }
+    
+    console.groupEnd()
+}
 
-console.log(`el perimetro del Triangulo es: ${perimetroTriangulo}`);
-console.log(`el Area del Triangulo es: ${areaTriangulo}`);
 
-console.groupEnd()
+function mostrarAreaDeltriangulo(){
+
+    const ladosTrianguloArea = document.getElementById('inputLadosTrianguloArea')
+    const inputLadosTrianguloValue = ladosTrianguloArea.value.split(' ');
+    
+    const ladosTriangulo = inputLadosTrianguloValue.map(lado => {
+        return parseInt(lado, 10)
+    })
+
+    if (ladosTriangulo.length > 3) {
+        resultArea.innerText = "estas ingresando mas de tres lados";
+        return
+    }
+    console.log(ladosTriangulo);
+    calcularArea(ladosTriangulo)
+}
 
 // ********************************************************** */
 

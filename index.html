@@ -5,8 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
 <body>
+    <section>
+
+        <h1>Altura Isoceles</h1>
+        <h3>En esta calculadora podemos darte la altura de un triangulo isoceles (recuerda que e un triangulo isoceles es el que tiene dos lados iguales y uno distino</h3>
+        <form class="mb-3"  action="">
+            <label for="inputLadosTriangulo">Ingresa los lados del triangulo separados por un espacio</label>
+            <input class="form-control" type="text" name="ladosTriangulos" id="inputLadosTriangulo">
+            
+            <button class="btn btn-primary" type="button" onclick="mostrarAlturaIsoceles()">Calcular</button>
+        </form>
+        
+        <p id="result"></p>
+    </section>
+
+    <section>
+
+        <h1>Area de un triangulo</h1>
+        <h3>Aqui vamos a ayudarte calculando el area de un triangulo. cualquiera sea. Vamos a aplicar algo bastante simple que es la formula de Heron, que calcula el area de un triangulo en base solo al largo de sus lados.</h3>
+        <form class="mb-3 w-12" action="">
+            <label for="inputLadosTrianguloArea">Ingresa los lados del triangulo separados por un espacio</label>
+            <input class="form-control" type="text" name="ladosTriangulosArea" id="inputLadosTrianguloArea">
+            
+            <button class="btn-primary" type="button" onclick="mostrarAreaDeltriangulo()">Calcular</button>
+        </form>
+        
+        <p id="resultArea"></p>
+    </section>
+
+
+
     <script src="./index.js"></script>
     <script src="./isoceles.js"></script>
 </body>
