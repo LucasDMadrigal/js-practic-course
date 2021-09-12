@@ -1,19 +1,8 @@
-const ladoCuadrado = 5;
 
-const areaCuadrado = Math.pow(ladoCuadrado, 2)
-
-console.group("area cuadrado");
-
-console.log(`los lados del cuadrado miden: ${ladoCuadrado}`);
-console.log(`el Area del cuadrado es: ${areaCuadrado}`);
-
-console.groupEnd()
 // *********************************************//
 
 const resultArea = document.getElementById('resultArea')
 
-
-    
 function calcularArea(ladosTrianguloArray){
 
     const ladoTriangulo1 = ladosTrianguloArray[0];
@@ -24,7 +13,9 @@ function calcularArea(ladosTrianguloArray){
     
     const semiperimetro = perimetroTriangulo/2
     
-    const areaTriangulo = Math.pow((semiperimetro*(semiperimetro - ladoTriangulo1)*(semiperimetro-ladoTriangulo2)*(semiperimetro - ladoTriangulo3)),0.5)
+    const areaTriangulo = Math.pow((semiperimetro*(semiperimetro - ladoTriangulo1)
+    *(semiperimetro-ladoTriangulo2)
+    *(semiperimetro - ladoTriangulo3)),0.5)
     
     console.group("area Triangulo");
     
@@ -73,3 +64,14 @@ console.log(`el Area del Circulo es: ${areaCirculo}`);
 
 console.groupEnd()
 // ********************************************************** */
+
+const ladoCuadrado = 5;
+
+const areaCuadrado = Math.pow(ladoCuadrado, 2)
+
+console.group("area cuadrado");
+
+console.log(`los lados del cuadrado miden: ${ladoCuadrado}`);
+console.log(`el Area del cuadrado es: ${areaCuadrado}`);
+
+console.groupEnd()

@@ -2,7 +2,8 @@ let result = document.getElementById('result')
 
 const calcularAlturaIsoceles = (ladosArray) => {
     const esIsoceles = (ladosArray[0] === ladosArray[1] && ladosArray[0] !== ladosArray[2]) 
-    || ladosArray[0] !== ladosArray[1] && ((ladosArray[0] === ladosArray[2] && ladosArray[0] !== ladosArray[1]) 
+    || ladosArray[0] !== ladosArray[1]
+    && ((ladosArray[0] === ladosArray[2])
     || (ladosArray[1] === ladosArray[2]))
     const ladosTriangulos = [...ladosArray];
     let hipotenusa;
@@ -30,6 +31,7 @@ const calcularAlturaIsoceles = (ladosArray) => {
 
     console.log(`hipotenusa: ${hipotenusa}`);
     console.log(`Base: ${base}`);
+    console.log(`Base/2: ${base/2}`);
     console.log(`Altura: ${altura}`);
 
     result.innerText = `La altura del triangulo es: ${altura}`
